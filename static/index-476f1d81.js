@@ -1,0 +1,1 @@
+import{b as s,p as a,z as e}from"./index-3dddc204.js";const n=s({__name:"index",setup(s){const n=a();return e().login({username:"admin",password:""}).then((()=>{n.push({path:"/"})})),()=>{}}});export{n as default};

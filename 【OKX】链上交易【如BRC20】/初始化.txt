@@ -1,0 +1,37 @@
+
+# needed for all coins
+npm install @okxweb3/crypto-lib
+npm install @okxweb3/coin-base
+
+# for eth
+npm install @okxweb3/coin-ethereum
+
+# for bitcoin
+npm install @okxweb3/coin-bitcoin
+
+# 安装初始化配置
+sh build.sh
+
+# npm更新到最新版本
+npm install -g npm@latest
+
+# 方法一：编译成js文件执行
+
+tsc /root/test/js-wallet-sdk/packages/coin-bitcoin/tests/btc.test.ts # ts编译成js
+
+node /root/test/js-wallet-sdk/packages/coin-bitcoin/tests/btc.test.js # 执行js文件【服务器】
+
+# 方法二：直接执行ts文件
+
+npm install -g typescript ts-node
+
+ts-node /root/test/js-wallet-sdk/packages/coin-bitcoin/tests/btc.test.ts # 执行js文件【服务器】
+ts-node C:\Users\13480\OneDrive\桌面\js-wallet-sdk\packages\coin-bitcoin\tests\btc.test.ts # 执行js文件【本地】
+
+# 报错处理：安装mocha以使用describe进行测试
+npm install --save-dev mocha 
+npm install --save-dev @types/mocha
+npm install --save-dev mocha @types/mocha
+
+# 清楚缓存
+npx tsc --clearCache

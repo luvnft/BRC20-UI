@@ -1,0 +1,1 @@
+import{_ as t,h as e,o as s}from"./index-3dddc204.js";const o={width:"100%",height:"100%",src:"https://stablediffusionweb.com/#demo"};const r=t({},[["render",function(t,r){return s(),e("iframe",o,"AI图片")}]]);export{r as default};

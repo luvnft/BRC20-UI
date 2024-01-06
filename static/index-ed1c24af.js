@@ -1,0 +1,1 @@
+import{_ as r,h as t,o as e}from"./index-3dddc204.js";const i={ref:"iframe",width:"100%",height:"100%",src:"https://ai.hxkj.vip/"};const s=r({},[["render",function(r,s){return e(),t("iframe",i,"GPT",512)}]]);export{s as default};
