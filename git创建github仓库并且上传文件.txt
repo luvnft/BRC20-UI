@@ -6,3 +6,5 @@ git add . # 将当前目录下所有变动文件都加到暂存区
 #文件解压缩
 gzip -d /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar.gz
 tar -xvf /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar
+#带权限执行文件
+chmod +x /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
