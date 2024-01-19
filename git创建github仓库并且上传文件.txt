@@ -2,3 +2,7 @@ cd /root/test/BRC20、ERC20、UI # 进入到该目录
 git init # 在git-demo里创建一个.git仓库
 ls -a # 查看git-demo里的所有文件，验证仓库是否创建成功
 git add . # 将当前目录下所有变动文件都加到暂存区
+
+#文件解压缩
+gzip -d /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar.gz
+tar -xvf /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar
