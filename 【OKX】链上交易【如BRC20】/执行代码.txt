@@ -1,0 +1,27 @@
+
+# needed for all coins
+npm install @okxweb3/crypto-lib
+npm install @okxweb3/coin-base
+
+# for eth
+npm install @okxweb3/coin-ethereum
+
+# for bitcoin
+npm install @okxweb3/coin-bitcoin
+
+# 安装初始化配置
+sh build.sh
+
+# npm更新到最新版本
+npm install -g npm@latest
+
+# 方法一：编译成js文件执行【按照先编译成js文件后调用js文件】 
+tsc /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.ts # ts编译成js
+node /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.js # 执行js文件【服务器】
+
+# 方法二：直接执行ts文件【按照ts-node包之后直接调用】 # npm install -g typescript ts-node
+ts-node /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.ts # 执行js文件【服务器】
+ts-node C:\Users\13480\OneDrive\桌面\js-wallet-sdk\packages\coin-bitcoin\tests\btc.test.ts # 执行js文件【本地】
+
+# 清楚缓存
+npx tsc --clearCache
