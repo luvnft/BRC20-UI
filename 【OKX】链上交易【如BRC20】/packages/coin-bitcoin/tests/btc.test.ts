@@ -40,86 +40,86 @@ let wallet = new BtcWallet()
 // let key = wallet.getRandomPrivateKey()
 // console.log(key)
 
-// // 测试比特币转账
-// // commitTxPrevOutputList 数组包含了多个交易输出信息，每个输出都关联一个比特币地址和对应的私钥。这些输出是从之前的不同交易中获得的，并且将用于支付新交易的费用。
-// // inscriptionDataList 数组包含了多个inscription（铭文）数据，这些数据将被写入比特币区块链。inscription是一种在比特币 Cashscript 中添加数据的方式，这些数据可以是任何内容，但在此例中，它们似乎是用于控制比特币网络上某种代币（brc-20）的铸币操作。
-// // request 对象是一个包含上述信息的请求，它将被用于创建一个新的交易。这个请求指定了交易的各项参数，包括手续费率、输出值、以及铸币操作的相关数据。
-// // inscribe 函数似乎是用来创建交易的，它接受网络信息和上述请求对象作为参数，返回一个包含所有新交易的对象。
-// // 最后，console.log(txs) 将所有创建的交易输出到控制台。
-// let network = bitcoin.networks.testnet;//测试网
-// let privateKey = "cPnvkvUYyHcSSS26iD1dkrJdV7k1RoUqJLhn3CYxpo398PdLVE22"
-// const commitTxPrevOutputList: PrevOutput[] = [];
-// commitTxPrevOutputList.push({
-//     txId: "36cdb491d2b02c1668d02e42edd80af339e1195df4d58927ab9db9e4893509a5",
-//     vOut: 4,
-//     amount: 1145068,
-//     address: "2NF33rckfiQTiE5Guk5ufUdwms8PgmtnEdc",
-//     privateKey: privateKey,
-// });
-// commitTxPrevOutputList.push({
-//     txId: "3d79592cd151427d2d3e55aaf09749c8417d24889c20edf68bd936adc427412a",
-//     vOut: 0,
-//     amount: 546,
-//     address: "tb1qtsq9c4fje6qsmheql8gajwtrrdrs38kdzeersc",
-//     privateKey: privateKey,
-// });
-// commitTxPrevOutputList.push({
-//     txId: "83f5768abfd8b95dbfd9191a94042a06a2c3639394fd50f40a00296cb551be8d",
-//     vOut: 0,
-//     amount: 546,
-//     address: "mouQtmBWDS7JnT65Grj2tPzdSmGKJgRMhE",
-//     privateKey: privateKey,
-// });
-// commitTxPrevOutputList.push({
-//     txId: "8583f92bfc087549f6f20eb2d1604b69d5625a9fe60df72e61e9138884f57c41",
-//     vOut: 0,
-//     amount: 546,
-//     address: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
-//     privateKey: privateKey,
-// });
-// const inscriptionDataList: InscriptionData[] = [];
-// inscriptionDataList.push({
-//     contentType: "text/plain;charset=utf-8",
-//     body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"100"}`,
-//     revealAddr: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
-// });
-// inscriptionDataList.push({
-//     contentType: "text/plain;charset=utf-8",
-//     body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"10"}`,
-//     revealAddr: "mouQtmBWDS7JnT65Grj2tPzdSmGKJgRMhE",
-// });
-// inscriptionDataList.push({
-//     contentType: "text/plain;charset=utf-8",
-//     body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"10000"}`,
-//     revealAddr: "tb1qtsq9c4fje6qsmheql8gajwtrrdrs38kdzeersc",
-// });
-// inscriptionDataList.push({
-//     contentType: "text/plain;charset=utf-8",
-//     body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"1"}`,
-//     revealAddr: "2NF33rckfiQTiE5Guk5ufUdwms8PgmtnEdc",
-// });
-// const request: InscriptionRequest = {
-//     commitTxPrevOutputList,
-//     commitFeeRate: 2,
-//     revealFeeRate: 2,
-//     revealOutValue: 546,
-//     inscriptionDataList,
-//     changeAddress: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
-// };
-// const txs: InscribeTxs = inscribe(network, request);
-// console.log(txs);
+// 测试比特币转账
+// commitTxPrevOutputList 数组包含了多个交易输出信息，每个输出都关联一个比特币地址和对应的私钥。这些输出是从之前的不同交易中获得的，并且将用于支付新交易的费用。
+// inscriptionDataList 数组包含了多个inscription（铭文）数据，这些数据将被写入比特币区块链。inscription是一种在比特币 Cashscript 中添加数据的方式，这些数据可以是任何内容，但在此例中，它们似乎是用于控制比特币网络上某种代币（brc-20）的铸币操作。
+// request 对象是一个包含上述信息的请求，它将被用于创建一个新的交易。这个请求指定了交易的各项参数，包括手续费率、输出值、以及铸币操作的相关数据。
+// inscribe 函数似乎是用来创建交易的，它接受网络信息和上述请求对象作为参数，返回一个包含所有新交易的对象。
+// 最后，console.log(txs) 将所有创建的交易输出到控制台。
+let network = bitcoin.networks.testnet;//测试网
+let privateKey = "cPnvkvUYyHcSSS26iD1dkrJdV7k1RoUqJLhn3CYxpo398PdLVE22"
+const commitTxPrevOutputList: PrevOutput[] = [];
+commitTxPrevOutputList.push({
+    txId: "36cdb491d2b02c1668d02e42edd80af339e1195df4d58927ab9db9e4893509a5",
+    vOut: 4,
+    amount: 1145068,
+    address: "2NF33rckfiQTiE5Guk5ufUdwms8PgmtnEdc",
+    privateKey: privateKey,
+});
+commitTxPrevOutputList.push({
+    txId: "3d79592cd151427d2d3e55aaf09749c8417d24889c20edf68bd936adc427412a",
+    vOut: 0,
+    amount: 546,
+    address: "tb1qtsq9c4fje6qsmheql8gajwtrrdrs38kdzeersc",
+    privateKey: privateKey,
+});
+commitTxPrevOutputList.push({
+    txId: "83f5768abfd8b95dbfd9191a94042a06a2c3639394fd50f40a00296cb551be8d",
+    vOut: 0,
+    amount: 546,
+    address: "mouQtmBWDS7JnT65Grj2tPzdSmGKJgRMhE",
+    privateKey: privateKey,
+});
+commitTxPrevOutputList.push({
+    txId: "8583f92bfc087549f6f20eb2d1604b69d5625a9fe60df72e61e9138884f57c41",
+    vOut: 0,
+    amount: 546,
+    address: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
+    privateKey: privateKey,
+});
+const inscriptionDataList: InscriptionData[] = [];
+inscriptionDataList.push({
+    contentType: "text/plain;charset=utf-8",
+    body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"100"}`,
+    revealAddr: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
+});
+inscriptionDataList.push({
+    contentType: "text/plain;charset=utf-8",
+    body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"10"}`,
+    revealAddr: "mouQtmBWDS7JnT65Grj2tPzdSmGKJgRMhE",
+});
+inscriptionDataList.push({
+    contentType: "text/plain;charset=utf-8",
+    body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"10000"}`,
+    revealAddr: "tb1qtsq9c4fje6qsmheql8gajwtrrdrs38kdzeersc",
+});
+inscriptionDataList.push({
+    contentType: "text/plain;charset=utf-8",
+    body: `{"p":"brc-20","op":"mint","tick":"xcvb","amt":"1"}`,
+    revealAddr: "2NF33rckfiQTiE5Guk5ufUdwms8PgmtnEdc",
+});
+const request: InscriptionRequest = {
+    commitTxPrevOutputList,
+    commitFeeRate: 2,
+    revealFeeRate: 2,
+    revealOutValue: 546,
+    inscriptionDataList,
+    changeAddress: "tb1pklh8lqax5l7m2ycypptv2emc4gata2dy28svnwcp9u32wlkenvsspcvhsr",
+};
+const txs: InscribeTxs = inscribe(network, request);
+console.log(txs);
 
 
-// 签署交易
-// 这段代码是在比特币 Cashscript 或类似脚本语言中编写的，其主要功能是签署一个比特币交易（PSBT - Partially Signed Bitcoin Transaction）。
-// psbtBase64 是一个包含部分签署的比特币交易的Base64编码字符串。这部分签署的交易（PSBT）是一种比特币交易格式，它包含了所有交易必要的信息，但没有包含所有需要的签名。
-// privateKey 是一个比特币私钥，这个私钥将用于签署交易。
-// psbtSign 函数是一个用于签署PSBT交易的函数，它接受PSBT交易的Base64编码字符串、私钥和网络（这里是测试网）作为参数，返回一个已签署的PSBT交易。
-// console.log(signedPsbt) 将签署后的PSBT交易输出到控制台。
-const psbtBase64 = "cHNidP8BAFMCAAAAAQZCRGL5uBebHNxiKaTiE/82KAYLKgp2gNrmdAQFzuNGAAAAAAD/////AaCGAQAAAAAAF6kU7wVRWgWV0V6vkNn2L7hYc6bYwLSHAAAAAAABASsiAgAAAAAAACJRILfuf4Omp/21EwQIVsVneKo6vqmkUeDJuwEvIqd+2ZshAQMEgwAAAAEXIFe7stSpy4ojV2M/IBucUYwnld7WgreRPGvu8/4jvW0vAAA=";
-const privateKey = "cPnvkvUYyHcSSS26iD1dkrJdV7k1RoUqJLhn3CYxpo398PdLVE22";
-const signedPsbt = psbtSign(psbtBase64, privateKey, networks.testnet);
-console.log(signedPsbt);
+// // 签署交易
+// // 这段代码是在比特币 Cashscript 或类似脚本语言中编写的，其主要功能是签署一个比特币交易（PSBT - Partially Signed Bitcoin Transaction）。
+// // psbtBase64 是一个包含部分签署的比特币交易的Base64编码字符串。这部分签署的交易（PSBT）是一种比特币交易格式，它包含了所有交易必要的信息，但没有包含所有需要的签名。
+// // privateKey 是一个比特币私钥，这个私钥将用于签署交易。
+// // psbtSign 函数是一个用于签署PSBT交易的函数，它接受PSBT交易的Base64编码字符串、私钥和网络（这里是测试网）作为参数，返回一个已签署的PSBT交易。
+// // console.log(signedPsbt) 将签署后的PSBT交易输出到控制台。
+// const psbtBase64 = "cHNidP8BAFMCAAAAAQZCRGL5uBebHNxiKaTiE/82KAYLKgp2gNrmdAQFzuNGAAAAAAD/////AaCGAQAAAAAAF6kU7wVRWgWV0V6vkNn2L7hYc6bYwLSHAAAAAAABASsiAgAAAAAAACJRILfuf4Omp/21EwQIVsVneKo6vqmkUeDJuwEvIqd+2ZshAQMEgwAAAAEXIFe7stSpy4ojV2M/IBucUYwnld7WgreRPGvu8/4jvW0vAAA=";
+// const privateKey = "cPnvkvUYyHcSSS26iD1dkrJdV7k1RoUqJLhn3CYxpo398PdLVE22";
+// const signedPsbt = psbtSign(psbtBase64, privateKey, networks.testnet);
+// console.log(signedPsbt);
 
 
 // // 比特币的加密操作，包括将私钥转换为WIF格式、使用WIF私钥对数据进行签名、将签名结果转换为公钥和地址，以及使用不同类型的地址进行签名操作。具体如下：
