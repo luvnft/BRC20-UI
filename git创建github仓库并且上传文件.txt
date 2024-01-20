@@ -10,3 +10,7 @@ tar -xvf /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar
 chmod +x /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
 #执行文件
 /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
+#执行日志
+[2024-01-20 21:44:35.479] miner speed 10s/60s/15m 98.45 97.57 n/a H/s max 99.26 H/s：这部分信息表示挖矿程序的速度统计，以每秒钟的哈希数（H/s）为单位进行报告。具体来说，它显示了过去10秒、60秒和15分钟内的平均速度，分别为98.45 H/s、97.57 H/s和n/a（不适用），以及最大速度为99.26 H/s。
+[2024-01-20 21:44:35.479] net new job from pool.supportxmr.com:3333 diff 50000 algo rx/0 height 3066088 (89 tx)：这行代码表示从pool.supportxmr.com:3333矿池接收到一个新的挖矿任务。其中，diff 50000指定了挖矿的难度目标（difficulty target），algo rx/0表示使用的挖矿算法和参数，height 3066088表示区块链的高度，(89 tx)表示该区块包含了89个交易。
+其他类似的行代码表示接收到不同时间点的新挖矿任务，但各项参数可能会有所不同。
