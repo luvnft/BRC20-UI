@@ -10,8 +10,6 @@ tar -xvf /root/test/BRC20、ERC20、UI/xmrig-6.21.0-linux-x64.tar
 chmod +x /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
 #执行文件
 /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
-#不挂起执行文件
-nohup /root/test/BRC20、ERC20、UI/【门罗币】Linux服务器挖矿xmrig-6.21.0/xmrig
 
 #执行日志
 [2024-01-20 21:44:35.479] miner speed 10s/60s/15m 98.45 97.57 n/a H/s max 99.26 H/s：这部分信息表示挖矿程序的速度统计，以每秒钟的哈希数（H/s）为单位进行报告。具体来说，它显示了过去10秒、60秒和15分钟内的平均速度，分别为98.45 H/s、97.57 H/s和n/a（不适用），以及最大速度为99.26 H/s。
