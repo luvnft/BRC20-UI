@@ -33,11 +33,39 @@
         "priority": null,
         "memory-pool": false,
         "yield": true,
-        "max-threads-hint": 100,
         "asm": true,
         "argon2-impl": null,
+        "argon2": [0, 1],
+        "cn": [
+            [1, 0],
+            [1, 1]
+        ],
+        "cn-heavy": [
+            [1, 0],
+            [1, 1]
+        ],
+        "cn-lite": [
+            [1, 0],
+            [1, 1]
+        ],
+        "cn-pico": [
+            [2, 0],
+            [2, 1]
+        ],
+        "cn/upx2": [
+            [2, 0],
+            [2, 1]
+        ],
+        "ghostrider": [
+            [8, 0],
+            [8, 1]
+        ],
+        "rx": [0, 1],
+        "rx/wow": [0, 1],
+        "cn-lite/0": false,
         "cn/0": false,
-        "cn-lite/0": false
+        "rx/arq": "rx/wow",
+        "rx/keva": "rx/wow"
     },
     "opencl": {
         "enabled": false,
@@ -45,19 +73,19 @@
         "loader": null,
         "platform": "AMD",
         "adl": true,
-        "cn/0": false,
-        "cn-lite/0": false
+        "cn-lite/0": false,
+        "cn/0": false
     },
     "cuda": {
         "enabled": false,
         "loader": null,
         "nvml": true,
-        "cn/0": false,
-        "cn-lite/0": false
+        "cn-lite/0": false,
+        "cn/0": false
     },
+    "log-file": null,
     "donate-level": 1,
     "donate-over-proxy": 1,
-    "log-file": null,
     "pools": [
         {
             "algo": null,
@@ -70,6 +98,7 @@
             "keepalive": false,
             "enabled": true,
             "tls": false,
+            "sni": false,
             "tls-fingerprint": null,
             "daemon": false,
             "socks5": null,
@@ -77,11 +106,11 @@
             "submit-to-origin": false
         }
     ],
+    "retries": 5,
+    "retry-pause": 5,
     "print-time": 60,
     "health-print-time": 60,
     "dmi": true,
-    "retries": 5,
-    "retry-pause": 5,
     "syslog": false,
     "tls": {
         "enabled": false,
