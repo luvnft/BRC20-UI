@@ -56,7 +56,7 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if ((value.length < 6)|(value!="000000")) {
+      if (!value === '000000') {
         callback(new Error('Please enter the correct password'))
       } else {
         callback()
