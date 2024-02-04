@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0abf64"],{1807:function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("iframe",{attrs:{width:"100%",height:"100%",src:"https://ai.hxkj.vip/"}},[t._v("GPT")])},i=[],r=n("2877"),s={},c=Object(r["a"])(s,a,i,!1,null,null,null);e["default"]=c.exports}}]);
