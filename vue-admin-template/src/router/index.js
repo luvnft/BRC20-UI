@@ -50,7 +50,7 @@ export const constantRoutes = [
     children: [{
       path: 'dashboard',
       name: '计算器Dashboard',
-      component: () => import('@/views/nested/table'),
+      component: () => import('@/views/menu/table'),
       meta: { title: '计算器', icon: 'dashboard' }
     }]
   },
