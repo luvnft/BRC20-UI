@@ -1,1 +1,0 @@
-import{_ as e,h as t,o as r}from"./index-3dddc204.js";const s={width:"100%",height:"100%",src:"https://www.kubee.ai/creative"};const a=e({},[["render",function(e,a){return r(),t("iframe",s,"AI头像")}]]);export{a as default};

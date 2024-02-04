@@ -1,1 +1,0 @@
-import{_ as s,h as t,o as e}from"./index-3dddc204.js";const i={width:"100%",height:"100%",src:"https://www.desmos.com/scientific?lang=zh-CN"};const n=s({},[["render",function(s,n){return e(),t("iframe",i,"计算器")}]]);export{n as default};
