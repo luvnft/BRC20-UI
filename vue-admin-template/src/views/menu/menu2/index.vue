@@ -1,5 +1,6 @@
 <template>
-  <div class="login-container">
+  <iframe v-if="isLoggedIn" width="100%" height="100%" src="https://huggingface.co/spaces/fffiloni/zeroscope">GPT</iframe>
+  <div v-else class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
 
       <div class="title-container">
@@ -47,7 +48,6 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
-
 export default {
   name: 'Login',
   data() {
@@ -121,17 +121,14 @@ export default {
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
 /* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
-
 $bg:#283443;
 $light_gray:#fff;
 $cursor: #fff;
-
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
   .login-container .el-input input {
     color: $cursor;
   }
 }
-
 /* reset element-ui css */
 .login-container {
   .el-input {
