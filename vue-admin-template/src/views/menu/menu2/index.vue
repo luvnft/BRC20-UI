@@ -2,11 +2,9 @@
   <iframe v-if="isLoggedIn" width="100%" height="100%" src="https://huggingface.co/spaces/fffiloni/zeroscope">GPT</iframe>
   <div v-else class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-
       <div class="title-container">
         <h3 class="title">Login Form</h3>
       </div>
-
       <el-form-item prop="username">
         <span class="svg-container">
           <svg-icon icon-class="user" />
@@ -21,7 +19,6 @@
           auto-complete="on"
         />
       </el-form-item>
-
       <el-form-item prop="password">
         <span class="svg-container">
           <svg-icon icon-class="password" />
