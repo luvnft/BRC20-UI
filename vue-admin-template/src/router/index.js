@@ -15,7 +15,11 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/table',
+  },
+  {
+    path: '/dashboard',
+    component: Layout,
+    redirect: '/dashboard',
     children: [{
       path: 'table',
       name: '计算器',
@@ -24,10 +28,10 @@ export const constantRoutes = [
     }]
   },
   {
-    path: "/",
+    path: "/menu",
     component: Layout,
     name: "menu",
-    redirect: '/menu/menu1',
+    redirect: '/menu',
     meta: {
       title: '工具箱',
       icon: 'menu'
