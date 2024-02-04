@@ -8,7 +8,8 @@
 export default {
   name: 'App'
 }
-// // npm install element-plus
+// npm install cnpm -g
+// cnpm install element-plus --save
 // import { ElNotification } from "element-plus"
 // import { h } from "vue"
 // ElNotification({
@@ -16,10 +17,9 @@ export default {
 //   message: h(
 //     "a",
 //     { style: "color: teal", target: "_blank", href: "https://t.zsxq.com/0fj2rWnlJ" },
-//     "小哥哥，小姐姐，加入我的知识星球吧，你的赞赏是我最大的动力"
+//     "兄台我观您骨骼清奇，加入我的知识星球，获取A股量化交易实盘源码"
 //   ),
 //   duration: 0,
 //   position: "bottom-right"
 // })
 </script>
-
