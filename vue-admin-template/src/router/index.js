@@ -12,10 +12,16 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-  {
-    path: '/',
-    component: Layout,
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   children: [{
+  //     path: 'login',
+  //     name: '计算器',
+  //     component: () => import('@/views/menu/login'),
+  //     meta: { title: '计算器', icon: 'dashboard' }
+  //   }]
+  // },
   {
     path: '/dashboard',
     component: Layout,
