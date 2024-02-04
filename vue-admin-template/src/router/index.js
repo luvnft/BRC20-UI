@@ -39,9 +39,10 @@ export const constantRoutes = [
     children: [
       {
         path: 'menu1',
-        component: () => import('@/views/menu/menu1/index'), // Parent router-view
+        component: () => import('@/views/menu/menu1/index'),
         name: 'Menu1',
         meta: { title: 'GPT' },
+        // Parent router-view
         children: [
           {
             path: 'menu1-1',
