@@ -57,28 +57,28 @@ export const constantRoutes = [
   {
     path: "/",
     component: Layout,
-    name: "nested",
-    redirect: '/nested/menu1',
+    name: "menu",
+    redirect: '/menu/menu1',
     meta: {
       title: '工具箱',
-      icon: 'nested'
+      icon: 'menu'
     },
     children: [
       {
         path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        component: () => import('@/views/menu/menu1/index'), // Parent router-view
         name: 'Menu1',
         meta: { title: 'GPT' },
         children: [
           {
             path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
+            component: () => import('@/views/menu/menu1/menu1-1'),
             name: 'GPT-1',
             meta: { title: 'GPT-1' }
           },
           {
             path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
+            component: () => import('@/views/menu/menu1/menu1-2'),
             name: 'GPT-2',
             meta: { title: 'GPT-2' },
           },
@@ -86,9 +86,9 @@ export const constantRoutes = [
       },
       {
         path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/menu/menu2/index'),
         name: 'Menu2',
-        meta: { title: '菜单' },
+        meta: { title: '付费专栏' },
       }
     ]
   },
