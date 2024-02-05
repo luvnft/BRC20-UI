@@ -13,7 +13,6 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
-// import '@/permission' // permission control
 
 /**
  * If you don't want to use mock-server
@@ -30,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 
 // set ElementUI lang to EN
 Vue.use(ElementUI, { locale })
-// 如果想要中文版 element-ui，按如下方式声明
+// 如果想要中文版 element-
 // Vue.use(ElementUI)
 
 Vue.config.productionTip = false

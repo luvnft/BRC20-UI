@@ -12,24 +12,14 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-  // {
-  //   path: '/',
-  //   component: Layout,
-  //   children: [{
-  //     path: 'login',
-  //     name: '计算器',
-  //     component: () => import('@/views/menu/login'),
-  //     meta: { title: '计算器', icon: 'dashboard' }
-  //   }]
-  // },
   {
-    path: '/dashboard',
+    path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    name: "dashboard",
     children: [{
-      path: 'table',
+      path: 'dashboard',
       name: '计算器',
-      component: () => import('@/views/menu/table'),
+      component: () => import('@/views/menu/dashboard'),
       meta: { title: '计算器', icon: 'dashboard' }
     }]
   },
@@ -65,9 +55,9 @@ export const constantRoutes = [
         ]
       },
       {
-        path: 'menu2',
-        component: () => import('@/views/menu/menu2/index'),
-        name: 'Menu2',
+        path: 'login',
+        component: () => import('@/views/menu/login'),
+        name: 'login',
         meta: { title: '付费专栏' },
       }
     ]
