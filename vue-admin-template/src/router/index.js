@@ -53,20 +53,20 @@ export const constantRoutes = [
         path: 'menu1',
         component: () => import('@/views/menu/menu1/index'),
         name: 'Menu1',
-        meta: { title: 'GPT' },
+        meta: { title: '工具箱' },
         // Parent router-view
         children: [
           {
             path: 'menu1-1',
             component: () => import('@/views/menu/menu1/menu1-1'),
-            name: 'GPT-1',
-            meta: { title: 'GPT-1' }
+            name: 'GPT',
+            meta: { title: 'GPT' }
           },
           {
             path: 'menu1-2',
             component: () => import('@/views/menu/menu1/menu1-2'),
-            name: 'GPT-2',
-            meta: { title: 'GPT-2' }
+            name: '书签',
+            meta: { title: '书签' }
           }
         ]
       },
