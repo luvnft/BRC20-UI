@@ -11,11 +11,12 @@ export const constantRoutes = [
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
-  },  
+  },
+
   {
     path: '/',
     component: Layout,
-    name: "login",
+    name: 'login',
     redirect: '/login',
     children: [{
       path: 'login',
@@ -24,22 +25,24 @@ export const constantRoutes = [
       meta: { title: '主页', icon: 'form' }
     }]
   },
+
   {
     path: '/dashboard',
     component: Layout,
-    name: "dashboard",
+    name: 'dashboard',
     redirect: '/dashboard',
     children: [{
-      path: 'dashboard',
+      path: '',
       name: '计算器',
       component: () => import('@/views/menu/dashboard'),
       meta: { title: '计算器', icon: 'dashboard' }
     }]
   },
+
   {
-    path: "/menu",
+    path: '/menu',
     component: Layout,
-    name: "menu",
+    name: 'menu',
     redirect: '/menu',
     meta: {
       title: '工具箱',
@@ -63,18 +66,19 @@ export const constantRoutes = [
             path: 'menu1-2',
             component: () => import('@/views/menu/menu1/menu1-2'),
             name: 'GPT-2',
-            meta: { title: 'GPT-2' },
-          },
+            meta: { title: 'GPT-2' }
+          }
         ]
       },
       {
         path: 'menu2',
         component: () => import('@/views/menu/menu2'),
         name: 'menu2',
-        meta: { title: '付费专栏' },
+        meta: { title: '付费专栏' }
       }
     ]
   },
+
   {
     path: 'external-link',
     component: Layout,
@@ -85,7 +89,6 @@ export const constantRoutes = [
       }
     ]
   },
-  // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
 
