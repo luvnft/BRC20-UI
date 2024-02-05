@@ -1,223 +1,25 @@
 <template>
-  <iframe v-if="isLoggedIn" width="100%" height="100%" src="https://huggingface.co/spaces/fffiloni/zeroscope">GPT</iframe>
-  <div v-else class="login-container">
-    <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
-      <div class="title-container">
-        <h3 class="title">会员登录</h3>
-      </div>
-      <el-form-item prop="username">
-        <span class="svg-container">
-          <svg-icon icon-class="user" />
-        </span>
-        <el-input
-          ref="username"
-          v-model="loginForm.username"
-          placeholder="Username"
-          name="username"
-          type="text"
-          tabindex="1"
-          auto-complete="on"
-        />
-      </el-form-item>
-      <el-form-item prop="password">
-        <span class="svg-container">
-          <svg-icon icon-class="password" />
-        </span>
-        <el-input
-          :key="passwordType"
-          ref="password"
-          v-model="loginForm.password"
-          :type="passwordType"
-          placeholder="Password"
-          name="password"
-          tabindex="2"
-          auto-complete="on"
-          @keyup.enter.native="handleLogin"
-        />
-        <span class="show-pwd" @click="showPwd">
-          <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
-        </span>
-      </el-form-item>
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-    </el-form>
-  </div>
+    <el-card class="disclaimer-card" style="text-align: center" header="免责声明">
+    <pre style="white-space: pre-wrap; word-wrap: break-word; text-align: left">
+    请注意以下条款，以规避您的风险和损失。如果您继续访问则表示您已经阅读、理解井同意接受本声明的所有条款：
+    1.本网站所提供的任何内容和服务仅供用户个人学习、研究和测试之用，不得作为商业用途。本网站的所有信息未来可能会随时更新和更改，不保证其准确性、完整性、及时性、适用性、稳定性和可靠性。
+    2.本网站提供的各种服务可能会由于技术故障、网络状况、通讯线路等各种原因而受到影响，使用户无法正常使用服务。对于因此造成的任何损失或者责任，本网站概不负责。
+    3.本网站内所有文章、评论、资料和信息等均为用户自行发布和创作，不代表本网站立场。用户应对使用该等信息所产生的风险和后果自行承担。对于任何因使用本网站所提供的信息和服务而导致的任何直接或间接损失，本网站概不负责。
+    4.用户应当遵守自己所在国家的相关法律法规，不得利用本网站进行任何违反法律法规的活动。如果因用户违反法律法规而导致的一切后果，用户应独立承担相应的责任和后果，并赔偿因此产生的全部费用和损失。
+    5.本网站不对用户在本网站上发布的任何内容、评论、言论、图片等内容的真实性、合法性、准确性、完整性、可靠性和及时性做出任何保证。用户应对其发布的内容自行进行审核和验证，如有错误、虚假、侵犯他人权益等情况，用户应承担相应的法律责任并赔偿因此给本网站及他人造成的一切损失。
+    6.本网站所提供的链接仅供用户方便浏览之用，与本网站无关。链接所指向的网页内容及其可用性均由其网站运营者负责。本网站不对链接所指向的网站的内容、准确性、及时性、完整性、合法性、信用等作任何保证和承诺，不对其产生的任何损失或责任承担任何法律责任。
+    7.在任何情况下，本网站不对用户使用本网站所导致的任何直接、间接、特殊、附带的损害或任何其他形式的损失承担任何责任，包括但不限于利润损失、商业中断、信息损失等。
+    8.本网站仅供实验使用，不对中国、美国等地区公民开放，如因其随意使用造成的任何风险由其自行承担。
+    </pre>
+    <el-button type="primary" size="large" @click="login"> 同 意 </el-button>
+  </el-card>
 </template>
-
 <script>
-import { validUsername } from '@/utils/validate'
 export default {
-  name: 'Login',
-  data() {
-    const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
-        callback(new Error('Please enter the correct user name'))
-      } else {
-        callback()
-      }
-    }
-    const validatePassword = (rule, value, callback) => {
-      if (!value === '000000') {
-        callback(new Error('Please enter the correct password'))
-      } else {
-        callback()
-      }
-    }
-    return {
-      loginForm: {
-        username: '',
-        password: ''
-      },
-      loginRules: {
-        username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-        password: [{ required: true, trigger: 'blur', validator: validatePassword }]
-      },
-      loading: false,
-      passwordType: 'password',
-      redirect: undefined
-    }
-  },
-  watch: {
-    $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect
-      },
-      immediate: true
-    }
-  },
   methods: {
-    showPwd() {
-      if (this.passwordType === 'password') {
-        this.passwordType = ''
-      } else {
-        this.passwordType = 'password'
-      }
-      this.$nextTick(() => {
-        this.$refs.password.focus()
-      })
-    },
-    handleLogin() {
-      this.$refs.loginForm.validate(valid => {
-        if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
-          })
-        } else {
-          console.log('error submit!!')
-          return false
-        }
-      })
+    login() {
+        $root.$router.push('/dashboard');
     }
   }
-}
+};
 </script>
-
-<style lang="scss">
-/* 修复input 背景不协调 和光标变色 */
-/* Detail see https://github.com/PanJiaChen/vue-element-admin/pull/927 */
-$bg:#283443;
-$light_gray:#fff;
-$cursor: #fff;
-@supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-  .login-container .el-input input {
-    color: $cursor;
-  }
-}
-/* reset element-ui css */
-.login-container {
-  .el-input {
-    display: inline-block;
-    height: 47px;
-    width: 85%;
-
-    input {
-      background: transparent;
-      border: 0px;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      caret-color: $cursor;
-
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
-      }
-    }
-  }
-
-  .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    color: #454545;
-  }
-}
-</style>
-
-<style lang="scss" scoped>
-$bg:#2d3a4b;
-$dark_gray:#889aa4;
-$light_gray:#eee;
-
-.login-container {
-  min-height: 100%;
-  width: 100%;
-  background-color: $bg;
-  overflow: hidden;
-
-  .login-form {
-    position: relative;
-    width: 520px;
-    max-width: 100%;
-    padding: 160px 35px 0;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
-  }
-
-  .svg-container {
-    padding: 6px 5px 6px 15px;
-    color: $dark_gray;
-    vertical-align: middle;
-    width: 30px;
-    display: inline-block;
-  }
-
-  .title-container {
-    position: relative;
-
-    .title {
-      font-size: 26px;
-      color: $light_gray;
-      margin: 0px auto 40px auto;
-      text-align: center;
-      font-weight: bold;
-    }
-  }
-
-  .show-pwd {
-    position: absolute;
-    right: 10px;
-    top: 7px;
-    font-size: 16px;
-    color: $dark_gray;
-    cursor: pointer;
-    user-select: none;
-  }
-}
-</style>
