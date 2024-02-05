@@ -43,8 +43,8 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/PanJiaChen/vue-admin-template.git
-
+# git clone https://github.com/PanJiaChen/vue-admin-template.git#原版
+# git clone https://github.com/bithomeswap/BRC20-ERC20-UI
 # 进入项目目录
 cd vue-admin-template
 

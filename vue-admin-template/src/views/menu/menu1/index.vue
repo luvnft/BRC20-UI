@@ -1,7 +1,5 @@
 <template>
-  <el-card class="disclaimer-card" style="text-align: center">
-    <router-view />
-  </el-card>
+  <router-view />
 </template>
 <style>
 iframe {
