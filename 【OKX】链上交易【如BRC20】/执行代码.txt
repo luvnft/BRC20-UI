@@ -20,8 +20,8 @@ tsc /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/c
 node /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.js # 执行js文件【服务器】
 
 # 方法二：直接执行ts文件【按照ts-node包之后直接调用】 # npm install -g typescript ts-node
-ts-node /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.ts # 执行js文件【服务器】
-ts-node C:\Users\13480\OneDrive\桌面\js-wallet-sdk\packages\coin-bitcoin\tests\btc.test.ts # 执行js文件【本地】
+ts-node /root/test/BRC20、ERC20、UI/【OKX】链上交易【如BRC20】/packages/coin-bitcoin/tests/btc.test.ts # 执行ts文件【服务器】
+ts-node C:\Users\13480\OneDrive\桌面\js-wallet-sdk\packages\coin-bitcoin\tests\btc.test.ts # 执行ts文件【本地】
 
 # 清楚缓存【其实之前代码里面有个测试的函数被我去掉了】
 npx tsc --clearCache
