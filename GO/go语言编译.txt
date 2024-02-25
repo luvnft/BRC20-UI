@@ -1,4 +1,7 @@
-# 安装go
+# windows安装go
+https://go.dev/dl/go1.22.0.windows-amd64.msi
+
+#linux安装go
 wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
 rm -rf /usr/local/go
 tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
@@ -10,8 +13,7 @@ go mod init
 
 #运行go文件【或者直接点调试按钮也可以】
 go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
-
-
+go run C:\Users\13480\gitee\BRC20-ERC20-UI\GO\hellow.go
 
 #使用yum更新glibc库【不管事】
 sudo yum update glibc
