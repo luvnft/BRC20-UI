@@ -11,18 +11,60 @@ go mod init
 #运行go文件【或者直接点调试按钮也可以】
 go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
 
+
+
+#使用yum更新glibc库【不管事】
+sudo yum update glibc
+
 #更新GLIBC库
 cd
 wget http://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.gz
 tar xf glibc-2.39.tar.gz 
-cd glibc-2.39/ && mkdir build  && cd build 
-# 替换这句话也可以cd ~/glibc-2.39/build
+cd glibc-2.39/ && mkdir build  && cd build
+# 升级GCC(默认为4 升级为8)
+yum install -y centos-release-scl
+yum install -y devtoolset-8-gcc*
+mv /usr/bin/gcc /usr/bin/gcc-4.8.5
+ln -s /opt/rh/devtoolset-8/root/bin/gcc /usr/bin/gcc
+mv /usr/bin/g++ /usr/bin/g++-4.8.5
+ln -s /opt/rh/devtoolset-8/root/bin/g++ /usr/bin/g++
+# 升级 make(默认为3 升级为4)
+wget http://ftp.gnu.org/gnu/make/make-4.3.tar.gz
+tar -xzvf make-4.3.tar.gz && cd make-4.3/
+./configure  --prefix=/usr/local/make
+make && make install
+cd /usr/bin/ && mv make make.bak
+ln -sv /usr/local/make/bin/make /usr/bin/make
+cd ~/glibc-2.39/build
+#升级 libstdc++
+make all
+yum whatprovides libstdc++.so.6
+yum update -y libstdc++.x86_64
+sudo wget http://www.vuln.cn/wp-content/uploads/2019/08/libstdc.so_.6.0.26.zip
+unzip libstdc.so_.6.0.26.zip
+cp libstdc++.so.6.0.26 /lib64/
+cd /lib64
+# 把原来的命令做备份
+cp libstdc++.so.6 libstdc++.so.6.bak
+rm -f libstdc++.so.6
+# 重新链接
+ln -s libstdc++.so.6.0.26 libstdc++.so.6
+cd ~/glibc-2.39/build
 # 配置环境
 ../configure --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
 # 安装
 make
 make install
-
+#查看版本
+ldd --version
 
 # 拉取cosmos
 # git clone https://github.com/cosmos/cosmos-sdk
+
+#安装cosmos的cli【本地环境不好配置，建议使用docker】
+curl https://get.ignite.com/cli! | bash
+
+
+docker run -ti ignitehq/cli -h
+docker run -ti ignitehq/cli scaffold chain planet
+docker run -ti ignitehq/cli chain serve
