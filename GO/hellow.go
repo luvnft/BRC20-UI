@@ -6,10 +6,8 @@ import (
 )
 
 func main() {
-	fmt.Println("嗨客网(www.haicoder.net)")
-
+	fmt.Println("hellow")
 	var num = 81
 	sqrtNum := math.Sqrt(float64(num))
-
 	fmt.Println("SqrtNum =", sqrtNum)
 }

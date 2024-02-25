@@ -5,6 +5,11 @@ tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 go version # 输出版本号说明安装成功
 
+#初始化模块【在任务文件夹下】
+go mod init
+
+#运行go文件【或者直接点调试按钮也可以】
+go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
 
 # 拉取cosmos
 # git clone https://github.com/cosmos/cosmos-sdk
