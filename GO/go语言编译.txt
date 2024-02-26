@@ -15,6 +15,11 @@ go mod init
 go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
 go run C:\Users\13480\gitee\BRC20-ERC20-UI\GO\hellow.go
 
+#下载git
+sudo apt-get install git
+git config --global user.name "username"
+git config --global user.email  useremail@qq.com
+git config --global credential.helper store
 #下载SDK
 mkdir cosmos
 cd cosmos
