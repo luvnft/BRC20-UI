@@ -33,7 +33,27 @@ sudo apt-get install ethereum
 sudo apt-get upgrade geth
 
 #配置GETH网络的参数
+geth removedb
 geth init /home/wth000/gitee/BRC20-ERC20-UI/GO/go-ethereum/genesis.json
+
+#配置环境
+sudo apt-get install aptitude
+sudo aptitude install gcc
+sudo aptitude install g++
+git clone -b v1.10.5 https://github.com/ethereum/go-ethereum.git
+
+make geth
+./build/bin/geth version
+gedit ~/.bashrc
+export GETH=/usr/local/go-ethereum
+export PATH=$PATH:$GETH/build/bin
+
+如果想启动提供Http-RPC服务的私有链，则运行：
+geth  --datadir "d:\privatechain" --networkid 23 --rpc  --rpcaddr "localhost" --rpcport "8545" --rpccorsdomain "*" --rpcapi "db,eth,net,web3" console
+如果想启动提供WebSockets-RPC服务的私有链，则运行：
+geth --datadir "d:\privatechain" --networkid 23 --ws --wsaddr "0.0.0.0" --wsport "8545" --wsorigin
+
+
 
 #安装make、gcc
 sudo apt install make
