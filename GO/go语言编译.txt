@@ -32,6 +32,8 @@ sudo apt-get update
 sudo apt-get install ethereum
 sudo apt-get upgrade geth
 
+#配置GETH网络的参数
+geth init /home/wth000/gitee/BRC20-ERC20-UI/GO/go-ethereum/genesis.json
 
 #安装make、gcc
 sudo apt install make
