@@ -7,7 +7,6 @@ rm -rf /home/wth000/go
 tar -C /home/wth000/ -xzf /home/wth000/gitee/BRC20-ERC20-UI/GO/go1.22.0.linux-amd64.tar.gz
 export PATH=$PATH:/home/wth000/go/bin
 go version # 输出版本号说明安装成功
-
 #初始化模块【在任务文件夹下】
 go mod init
 
@@ -20,17 +19,17 @@ sudo apt-get install git
 git config --global credential.helper store#设置自动保存配置避免重复输入账户密码
 git config --global user.name "username"
 git config --global user.email  useremail@qq.com
+
 #下载SDK
-mkdir cosmos
-cd cosmos
-git clone git@github.com:cosmos/cosmos-sdk.git
-cd cosmos-sdk
-# 这个版本号看后面变化
-git checkout v0.42.6
+git clone https://github.com/ethereum/go-ethereum
+
+#构建文件
+make build
+ls build
+
 #安装make、gcc
 sudo apt install make
 sudo apt install gcc#不管用还是得单独安装
-
 #更新GLIBC库（centos服务器）
 cd
 wget http://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.gz
@@ -76,10 +75,7 @@ ldd --version
 sudo apt install net-tools#联网工具
 ip addr show eth0
 sudo ip link set eth0 up
-#升级之后才能通过安装build-essential获取到gcc
+
+#联网之后才能通过安装build-essential获取到gcc
 sudo apt-get update
 sudo apt-get install build-essential
-
-#构建文件
-make build
-ls build
