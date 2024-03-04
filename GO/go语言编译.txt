@@ -8,6 +8,7 @@ rm -rf /home/wth000/go
 tar -C /home/wth000/ -xzf /home/wth000/BRC20-ERC20-UI/GO/L2-tdsapi-python-2.3.4-20240103.tar.gz
 
 
+
 tar -C /home/wth000/ -xzf go1.22.0.linux-amd64.tar.gz
 export PATH=$PATH:/home/wth000/go/bin
 go version # 输出版本号说明安装成功
