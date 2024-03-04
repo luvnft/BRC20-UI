@@ -32,21 +32,31 @@ sudo apt-get update
 sudo apt-get install ethereum
 sudo apt-get upgrade geth
 
+mkdir privatechain //为私有链创建目录
+cd privatechain //进入目录
+
 #配置GETH网络的参数
 geth removedb
-geth init /home/wth000/gitee/BRC20-ERC20-UI/GO/go-ethereum/genesis.json
+geth init /home/wth000/gitee/BRC20-ERC20-UI/GO/go-ethereum/genesis.json –datadir . //初始化该私有链
+geth –datadir . console //启动创建好的私有链
+eth.accounts //查看一下账号的情况，账号是否是上述生成的账号
+eth.getBalance(“账户地址”) //查看余额
 
 #配置环境
 sudo apt-get install aptitude
 sudo aptitude install gcc
 sudo aptitude install g++
 git clone -b v1.10.5 https://github.com/ethereum/go-ethereum.git
+sudo apt install gedit
 
 make geth
-./build/bin/geth version
+geth version
 gedit ~/.bashrc
 export GETH=/usr/local/go-ethereum
 export PATH=$PATH:$GETH/build/bin
+
+
+
 
 如果想启动提供Http-RPC服务的私有链，则运行：
 geth  --datadir "d:\privatechain" --networkid 23 --rpc  --rpcaddr "localhost" --rpcport "8545" --rpccorsdomain "*" --rpcapi "db,eth,net,web3" console
