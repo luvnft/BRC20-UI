@@ -23,9 +23,15 @@ git config --global user.email  useremail@qq.com
 #下载SDK
 git clone https://github.com/ethereum/go-ethereum
 
-#构建文件
-make build
-ls build
+#安装GETH
+sudo add-apt-repository -y ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install ethereum
+#升级GETH
+sudo apt-get update
+sudo apt-get install ethereum
+sudo apt-get upgrade geth
+
 
 #安装make、gcc
 sudo apt install make
