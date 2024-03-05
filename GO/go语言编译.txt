@@ -12,7 +12,7 @@ go mod init
 
 #运行go文件【或者直接点调试按钮也可以】
 go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
-go run C:\Users\13480\gitee\BRC20-ERC20-UI\GO\hellow.go
+go run C:\Users\Admin\gitee\BRC20-ERC20-UI\GO\hellow.go
 
 #下载git
 sudo apt-get install git
