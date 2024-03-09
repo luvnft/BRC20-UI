@@ -1,12 +1,3 @@
-// GCC路径
-// /usr/include/c++/11
-// /usr/include/x86_64-linux-gnu/c++/11
-// /usr/include/c++/11/backward
-// /usr/lib/gcc/x86_64-linux-gnu/11/include
-// /usr/local/include
-// /usr/include/x86_64-linux-gnu
-// /usr/include
-
 // #include<stdio.h>
 // int main()
 // {
@@ -46,6 +37,18 @@ int main( )
    cout << "Max (100,1010): " << Max(100,1010) << endl;
 //    return 0;//这里有没有都没关系
 }
+
+// 检查gcc路径
+// gcc -v -E -x c++ -
+
+// GCC路径
+// /usr/include/c++/11
+// /usr/include/x86_64-linux-gnu/c++/11
+// /usr/include/c++/11/backward
+// /usr/lib/gcc/x86_64-linux-gnu/11/include
+// /usr/local/include
+// /usr/include/x86_64-linux-gnu
+// /usr/include
 
 // 执行C++文件
 // gcc /home/wth000/gitee/BRC20-ERC20-UI/c++程序测试.cpp -o test
