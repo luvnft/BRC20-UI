@@ -7,8 +7,36 @@ sudo apt-get install -y \
     
 #安装rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-#重置
-source ~/.bashrc
 
-#安装SOL cli【下载不下来】
-sh -c "$(curl -sSfL https://release.solana.com/v1.18.4/install)"
+#安装SOL cli参考Linux操作系统导航到 https://github.com/solana-labs/solana/releases/latest 下载二进制文件， 下载 solana-release-x86_64-unknown-linux-gnu.tar.bz2 ，然后解压缩 档案：
+#自动下载
+curl -L -o solana-release-x86_64-unknown-linux-gnu.tar.bz2 https://github.com/solana-labs/solana/releases/latest/download/solana-release-x86_64-unknown-linux-gnu.tar.bz2
+#解压缩构建cil
+tar jxf solana-release-x86_64-unknown-linux-gnu.tar.bz2
+#进入solana环境
+cd solana-release/
+#设置solana环境变量
+export PATH=$PWD/bin:$PATH
+#运行测试网
+solana-test-validator
+#请求获得1个solana空投
+solana airdrop 1 7TUaMotA3MrL6sZdf5cg18CSzwhBof4eUFjcp9KzZrEz --url https://api.devnet.solana.com
+
+solana balance <ACCOUNT_ADDRESS> --url https://api.devnet.solana.com
+
+id:[32,171,185,194,112,113,191,173,37,204,8,20,167,129,190,16,132,206,107,56,8,20,122,95,151,150,179,24,253,223,60,108,95,238,102,228,5,72,38,161,95,218,68,49,38,135,244,233,103,60,251,31,7,27,81,4,137,96,194,4,254,3,128,95]
+密码：wth000
+公钥：7TUaMotA3MrL6sZdf5cg18CSzwhBof4eUFjcp9KzZrEz
+
+(base) wth000@DESKTOP-537P322:~/solana-release$ solana-test-validator
+Ledger location: test-ledger
+Log: test-ledger/validator.log
+⠉ Initializing...                                                                                                                                                  Waiting for fees to stabilize 1...
+Identity: EeZFUf5XmKsNHMfnBAnqqGMDFoNknE9N5vaLwdtSUuHt
+Genesis Hash: EJzaEtG1PegPvqadsjTHQx7B1YwpvGJK72pqEEzTJ7tY
+Version: 1.17.26
+Shred Version: 54825
+Gossip Address: 127.0.0.1:1024
+TPU Address: 127.0.0.1:1027
+JSON RPC URL: http://127.0.0.1:8899
+WebSocket PubSub URL: ws://127.0.0.1:8900
