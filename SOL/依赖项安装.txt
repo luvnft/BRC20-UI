@@ -11,8 +11,4 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 source ~/.bashrc
 
 #安装SOL cli【下载不下来】
-curl -sSfL https://release.solana.com/stable/install > solana-install.sh
-chmod +x solana-install.sh
-/home/wth000/solana-install.sh
-
-sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+sh -c "$(curl -sSfL https://release.solana.com/v1.18.4/install)"
