@@ -1,3 +1,11 @@
+【windows】
+复制并粘贴以下命令，然后按 Enter 下载 Solana 安装程序添加到临时目录中：
+cmd /c "curl https://release.solana.com/v1.18.4/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs"
+
+C:\solana-install-tmp\solana-install-init.exe v1.18.4
+
+【linux】
+
 #安装依赖
 sudo apt-get install -y \
     build-essential \
