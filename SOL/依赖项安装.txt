@@ -1,20 +1,41 @@
-【windows】
-复制并粘贴以下命令，然后按 Enter 下载 Solana 安装程序添加到临时目录中：
-cmd /c "curl https://release.solana.com/v1.18.4/solana-install-init-x86_64-pc-windows-msvc.exe --output C:\solana-install-tmp\solana-install-init.exe --create-dirs"
+#安装rust及相关依赖
+curl https://sh.rustup.rs -sSf | sh
+source $HOME/.cargo/env
+rustup component add rustfmt
+sudo apt-get update
+sudo apt-get install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang cmake make libprotobuf-dev protobuf-compiler
+rustup install nightly
 
-C:\solana-install-tmp\solana-install-init.exe v1.18.4
+#安装solana【未来更新之后需要更新版本号】
+sh -c "$(curl -sSfL https://release.solana.com/v1.14.2/install)"
+solana --Version
+##切换版本【如果切换版本后cargo build-bpf 命令失败， 删除缓存rm -rf ~/.cache/solana/*, 再试试。】
+#sh -c "$(curl -sSfL https://release.solana.com/v1.10.33/install)"
 
-【linux】
+#安装anchor，anchor是个写solana合约的框架。不用anchor也可以写solana合约， 但是需要有丰富的经验才能规避很多坑和安全漏洞， 并且开发的过程需要自己写很多繁琐的代码。
+‍sudo apt-get update && sudo apt-get upgrade && sudo apt-get install -y pkg-config build-essential libudev-dev
+cargo install --git https://github.com/project-serum/anchor avm --locked --force
+avm install latest
+avm use latest
+anchor --version
 
-#安装依赖
-sudo apt-get install -y \
-    build-essential \
-    pkg-config \
-    libudev-dev llvm libclang-dev \
-    protobuf-compiler libssl-dev
-    
-#安装rust
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+#如果是用22.04ubuntu，需要额外安装个包 libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb 否则无法编译合约.
+#如果不安装会报错libssl.so.1.1: cannot open shared object file: No such file or directory
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1l-1ubuntu1.2_amd64.deb
+
+#安装yarn
+$ anchor init sa01-hello-world
+yarn install v1.22.19
+
+
+
+
+
+
+
+###【【需要用上面的代码更新下面的代码】】###
+sh -c "$(curl -sSfL https://release.solana.com/v1.10.33/install)"
 
 #安装SOL cli参考Linux操作系统导航到 https://github.com/solana-labs/solana/releases/latest 下载二进制文件， 下载 solana-release-x86_64-unknown-linux-gnu.tar.bz2 ，然后解压缩 档案：
 #自动下载
