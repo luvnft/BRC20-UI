@@ -53,4 +53,6 @@ const privateKey=Uint8Array.from([
     ])
 const keypair = web3.Keypair.fromSeed(privateKey)
 console.log("Generated Public Key:", keypair);
+// sudo apt install ts-node
 // ts-node /home/wth000/gitee/BRC20-ERC20-UI/SOL/密钥恢复.ts
+// npm install -g typescript
