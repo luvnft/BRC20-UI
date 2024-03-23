@@ -10,8 +10,13 @@ rustup install nightly
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 #查看solana版本
 solana --version
+#不同网络环境
+DevNet: https://api.devnet.solana.com
+TestNet: https://api.testnet.solana.com
+MainNet: https://api.mainnet-beta.solana.com
 #设置当前环境为测试网
-solana config set --url https://api.devnet.solana.com
+solana config set --url https://api.devnet.solana.com#开发网现在申请不到了
+solana config set --url https://api.testnet.solana.com#测试网现在能申请到
 #生成新账户
 solana-keygen new --force
 #【账户生成的信息】
@@ -20,7 +25,7 @@ id:[67,201,54,86,54,242,139,128,197,197,18,8,59,83,72,94,224,238,179,89,26,218,1
 公钥：5KbKZiWmaHmcnPuyyDLS869z7mbAV7Yeuu45YPDKKspu
 #申请一个空投
 solana airdrop 1
-#转账【会报错余额不足】
+#转账
 solana transfer --allow-unfunded-recipient CZmVK1DymrSVWHiQCGXx6VG5zgHVrh5J1P514jHKRDxA 0.01
 
 #命令行操作，查看spl-token命令的帮助文档
