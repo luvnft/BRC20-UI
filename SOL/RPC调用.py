@@ -41,7 +41,7 @@ secret_key=(
 #     )
 # keypair = Keypair.from_json(raw=secret_key)
 keypair = Keypair.from_bytes(raw_bytes=secret_key)
-print(keypair,keypair.secret(),keypair.pubkey())
+print(keypair,keypair.to_json(),keypair.pubkey())
 
 # #请求空投
 # req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
