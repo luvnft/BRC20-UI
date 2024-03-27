@@ -7,7 +7,8 @@ rustup component add rustfmt
 sudo apt-get update
 sudo apt-get install libssl-dev libudev-dev pkg-config zlib1g-dev llvm clang cmake make libprotobuf-dev protobuf-compiler
 rustup install nightly
-
+#使用rust创建新项目
+cargo new my_project
 #安装solana【限制IP】
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
 #查看solana版本
