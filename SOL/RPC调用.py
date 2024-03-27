@@ -43,6 +43,11 @@ secret_key=(
 keypair = Keypair.from_bytes(raw_bytes=secret_key)
 print(keypair,keypair.to_json(),keypair.pubkey())
 
+
+from solana.wallet import Wallet
+wallet = Wallet()
+mnemonic = wallet.generate_mnemonic()
+
 # #请求空投
 # req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
 # print(req)
