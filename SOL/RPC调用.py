@@ -1,5 +1,5 @@
 # # pip install bip_utils
-# from bip_utils import Mnemonic,Bip39SeedGenerator, Bip39MnemonicGenerator, Bip39WordsNum
+# from bip_utils import Bip39SeedGenerator, Bip39MnemonicGenerator, Bip39WordsNum
 # # 生成助记词
 # mnemonic = "pill tomorrow foster begin walnut borrow virtual kick shift mutual shoe scatter"
 # # 将助记词转换为种子
@@ -12,15 +12,24 @@ import time
 # from solana.rpc.api import *
 # 链接服务器
 from solana.rpc.api import Client
-http_client = Client("https://api.devnet.solana.com")
-
+# DevNet: https://api.devnet.solana.com
+# TestNet: https://api.testnet.solana.com
+# MainNet: https://api.mainnet-beta.solana.com
+# http_client = Client("https://api.devnet.solana.com")
+http_client = Client("https://api.testnet.solana.com")
+# http_client = Client("https://api.mainnet-beta.solana.com")
 #字节码转私钥
 from solana.rpc.api import Keypair
 
-# # 从Base58字符串：
-# b58_string = "5MaiiCavjCmn9Hs1o3eznqDEhRwxo7pXiAYez7keQUviUkauRiTMD8DrESdrNjN8zd9mTmVhRvBJeg5vhyvgrAhG"
-# keypair = Keypair.from_base58_string(b58_string)
-# print(keypair)
+# 从Base58字符串：
+b58_string = "5MaiiCavjCmn9Hs1o3eznqDEhRwxo7pXiAYez7keQUviUkauRiTMD8DrESdrNjN8zd9mTmVhRvBJeg5vhyvgrAhG"
+keypair = Keypair.from_base58_string(b58_string)
+print(keypair)#理论上这个keypair表示的是私钥
+from solana.rpc.api import Pubkey
+print(keypair.pubkey())#输出公钥
+# time.sleep(100)
+
+
 
 # 从字节中：
 # secret_key=(
@@ -36,8 +45,13 @@ secret_key=(
 keypair = Keypair.from_bytes(raw_bytes=secret_key)
 print(keypair,keypair.secret(),keypair.pubkey())
 
-# #请求空投
-# request_airdrop
+#请求空投
+req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
+print(req)
+# balance=http_client.get_token_supply(pubkey=keypair.pubkey())#获取某个币的供应信息
+# balance=http_client.get_token_account_balance(pubkey=keypair.pubkey())#获取某个币的余额信息
+balance=http_client.get_balance(pubkey=keypair.pubkey())#获取账户的sol余额
+print(balance)
 
 # # 生成新的密钥对
 # keypair = Keypair()
