@@ -1,3 +1,11 @@
+# # pip install bip_utils
+# from bip_utils import Mnemonic,Bip39SeedGenerator, Bip39MnemonicGenerator, Bip39WordsNum
+# # 生成助记词
+# mnemonic = "pill tomorrow foster begin walnut borrow virtual kick shift mutual shoe scatter"
+# # 将助记词转换为种子
+# seed_bytes = Bip39SeedGenerator(mnemonic).Generate()
+# print(seed_bytes)
+
 # pip install solana
 # import solana
 import time
@@ -9,24 +17,27 @@ http_client = Client("https://api.devnet.solana.com")
 #字节码转私钥
 from solana.rpc.api import Keypair
 
-# 从Base58字符串：
-b58_string = "5MaiiCavjCmn9Hs1o3eznqDEhRwxo7pXiAYez7keQUviUkauRiTMD8DrESdrNjN8zd9mTmVhRvBJeg5vhyvgrAhG"
-keypair = Keypair.from_base58_string(b58_string)
-print(keypair)
-
-# # 从字节中：
-# # secret_key=(
-# #     [174,47,154,16,202,193,206,113,199,190,53,133,169,175,31,56,222,53,138,189,224,216,117,173,10,149,53,45,73,251,237,246,15,185,186,82,177,240,148,69,241,227,167,80,141,89,240,121,121,35,172,247,68,251,226,218,48,63,176,109,168,89,238,135]
-# #     )
-# secret_key=(
-#     [130,233,227,101,130,130,91,155,206,159,247,203,201,17,174,119,89,193,138,129,118,81,59,188,8,189,173,240,189,108,228,235,17,189,127,1,22,211,99,60,242,19,27,130,178,148,81,116,178,230,137,37,20,129,229,106,37,162,192,247,49,57,2,18]
-#     )
-# # secret_key=(
-# #     [67,201,54,86,54,242,139,128,197,197,18,8,59,83,72,94,224,238,179,89,26,218,170,112,41,35,239,56,81,67,4,40,64,50,2,18,143,136,235,199,215,69,170,144,225,126,155,178,6,255,95,168,138,62,228,76,12,195,144,186,61,0,98,82]
-# #     )
-# # keypair = Keypair.from_json(raw=secret_key)
-# keypair = Keypair.from_bytes(raw_bytes=secret_key)
+# # 从Base58字符串：
+# b58_string = "5MaiiCavjCmn9Hs1o3eznqDEhRwxo7pXiAYez7keQUviUkauRiTMD8DrESdrNjN8zd9mTmVhRvBJeg5vhyvgrAhG"
+# keypair = Keypair.from_base58_string(b58_string)
 # print(keypair)
+
+# 从字节中：
+# secret_key=(
+#     [174,47,154,16,202,193,206,113,199,190,53,133,169,175,31,56,222,53,138,189,224,216,117,173,10,149,53,45,73,251,237,246,15,185,186,82,177,240,148,69,241,227,167,80,141,89,240,121,121,35,172,247,68,251,226,218,48,63,176,109,168,89,238,135]
+#     )
+secret_key=(
+    [130,233,227,101,130,130,91,155,206,159,247,203,201,17,174,119,89,193,138,129,118,81,59,188,8,189,173,240,189,108,228,235,17,189,127,1,22,211,99,60,242,19,27,130,178,148,81,116,178,230,137,37,20,129,229,106,37,162,192,247,49,57,2,18]
+    )
+# secret_key=(
+#     [67,201,54,86,54,242,139,128,197,197,18,8,59,83,72,94,224,238,179,89,26,218,170,112,41,35,239,56,81,67,4,40,64,50,2,18,143,136,235,199,215,69,170,144,225,126,155,178,6,255,95,168,138,62,228,76,12,195,144,186,61,0,98,82]
+#     )
+# keypair = Keypair.from_json(raw=secret_key)
+keypair = Keypair.from_bytes(raw_bytes=secret_key)
+print(keypair,keypair.secret(),keypair.pubkey())
+
+# #请求空投
+# request_airdrop
 
 # # 生成新的密钥对
 # keypair = Keypair()
