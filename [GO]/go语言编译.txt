@@ -4,15 +4,14 @@ https://go.dev/dl/go1.22.0.windows-amd64.msi
 #linux安装go
 wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
 rm -rf /home/wth000/go
-tar -C /home/wth000/ -xzf /home/wth000/gitee/BRC20-ERC20-UI/GO/go1.22.0.linux-amd64.tar.gz
+tar -C /home/wth000/ -xzf /home/wth000/gitee/BRC20-ERC20-UI/[GO]/go1.22.0.linux-amd64.tar.gz
 export PATH=$PATH:/home/wth000/go/bin
 go version # 输出版本号说明安装成功
 #初始化模块【在任务文件夹下】
 go mod init
 
 #运行go文件【或者直接点调试按钮也可以】
-go run /root/test/BRC20、ERC20、UI/GO/hellow.go#或者直接点调试按钮也可以
-go run C:\Users\Admin\gitee\BRC20-ERC20-UI\GO\hellow.go
+go run /home/wth000/gitee/BRC20-ERC20-UI/[GO]/hellow.go#或者直接点调试按钮也可以
 
 #下载git
 sudo apt-get install git
