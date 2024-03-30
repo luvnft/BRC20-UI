@@ -1,15 +1,3 @@
-# # pip install bip_utils
-# from bip_utils import Bip39SeedGenerator, Bip39MnemonicGenerator, Bip39WordsNum
-# # 生成助记词
-# mnemonic = "pill tomorrow foster begin walnut borrow virtual kick shift mutual shoe scatter"
-# # 将助记词转换为种子
-# seed_bytes = Bip39SeedGenerator(mnemonic).Generate()
-# print(seed_bytes)
-
-# pip install solana
-# import solana
-import time
-# from solana.rpc.api import *
 # 链接服务器
 from solana.rpc.api import Client
 # DevNet: https://api.devnet.solana.com
@@ -18,42 +6,52 @@ from solana.rpc.api import Client
 # http_client = Client("https://api.devnet.solana.com")
 http_client = Client("https://api.testnet.solana.com")
 # http_client = Client("https://api.mainnet-beta.solana.com")
+
 #字节码转私钥
 from solana.rpc.api import Keypair
 
-# 从Base58字符串：
-b58_string = "5MaiiCavjCmn9Hs1o3eznqDEhRwxo7pXiAYez7keQUviUkauRiTMD8DrESdrNjN8zd9mTmVhRvBJeg5vhyvgrAhG"
-keypair = Keypair.from_base58_string(b58_string)
-print(keypair)#理论上这个keypair表示的是私钥
-from solana.rpc.api import Pubkey
-print(keypair.pubkey())#输出公钥
-# time.sleep(100)
-
-# #从字节中：
-# secret_key=(
-#     [174,47,154,16,202,193,206,113,199,190,53,133,169,175,31,56,222,53,138,189,224,216,117,173,10,149,53,45,73,251,237,246,15,185,186,82,177,240,148,69,241,227,167,80,141,89,240,121,121,35,172,247,68,251,226,218,48,63,176,109,168,89,238,135]
-#     )
-secret_key=(
-    [130,233,227,101,130,130,91,155,206,159,247,203,201,17,174,119,89,193,138,129,118,81,59,188,8,189,173,240,189,108,228,235,17,189,127,1,22,211,99,60,242,19,27,130,178,148,81,116,178,230,137,37,20,129,229,106,37,162,192,247,49,57,2,18]
-    )
-# secret_key=(
-#     [67,201,54,86,54,242,139,128,197,197,18,8,59,83,72,94,224,238,179,89,26,218,170,112,41,35,239,56,81,67,4,40,64,50,2,18,143,136,235,199,215,69,170,144,225,126,155,178,6,255,95,168,138,62,228,76,12,195,144,186,61,0,98,82]
-#     )
-# keypair = Keypair.from_json(raw=secret_key)
-keypair = Keypair.from_bytes(raw_bytes=secret_key)
-print(keypair,keypair.to_json(),keypair.pubkey())
-
-# #请求空投
-# req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
-# print(req)
-# balance=http_client.get_token_supply(pubkey=keypair.pubkey())#获取某个币的供应信息
-# balance=http_client.get_token_account_balance(pubkey=keypair.pubkey())#获取某个币的余额信息
-balance=http_client.get_balance(pubkey=keypair.pubkey())#获取账户的sol余额
-print(balance)
-
-# # 生成新的密钥对
-# keypair = Keypair()
-# print(keypair)
+import time
+import pandas as pd
+keydf=pd.DataFrame({})
+for n in range(1,100):
+    # #生成私钥
+    keypair = Keypair()
+    print(keypair)
+    # #转换成公钥
+    publickey=keypair.pubkey()
+    # print(publickey)
+    # #生成json
+    # json=keypair.to_json()
+    # #生成字节码
+    json=keypair.to_bytes_array()
+    print(json)
+    # #转回私钥
+    keypair = Keypair.from_bytes(raw_bytes=json)
+    print(keypair)
+    
+    # # #对账户申请空投【仅仅支持测试网】
+    # req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
+    # print(req)
+    # time.sleep(200)
+    # balance=http_client.get_balance(pubkey=keypair.pubkey())#获取账户的sol余额
+    # print(balance)
+    # time.sleep(2)
+    keydf=pd.concat([keydf,pd.DataFrame({"私钥":[str(keypair)],
+                                         "公钥":[str(publickey)],
+                                         "字节码":[json],
+                                        #  "空投结果":[req],
+                                        #  "余额":[balance],
+                                         })])
+# keydf.to_csv("密钥对.csv")
+##导出密钥对的对应关系
+keydf.to_csv("/home/wth000/gitee/BRC20-ERC20-UI/[SOL]/密钥对.csv")
+##仅仅导出私钥
+keypairs=keydf["私钥"].tolist()
+with open('/home/wth000/gitee/BRC20-ERC20-UI/[SOL]/私钥.txt', 'w') as file:
+    # 将列表中的每个元素写入文件中，并添加换行符
+    for item in keypairs:
+        file.write(item + ',\n')
+# print(keypairs)
 
 # #验证私钥是否跟公钥对应
 # from solana.rpc.api import Pubkey
@@ -100,7 +98,7 @@ print(balance)
 #         await websocket.logs_unsubscribe(subscription_id)
 # asyncio.run(main())
 
-
+# #转账
 # from solana.rpc.api import Transaction
 # from solders.system_program import transfer, TransferParams
 # from solana.rpc.api import Pubkey
