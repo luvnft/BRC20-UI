@@ -4,8 +4,8 @@ from solana.rpc.api import Client
 # TestNet: https://api.testnet.solana.com
 # MainNet: https://api.mainnet-beta.solana.com
 # http_client = Client("https://api.devnet.solana.com")
-http_client = Client("https://api.testnet.solana.com")
-# http_client = Client("https://api.mainnet-beta.solana.com")
+# http_client = Client("https://api.testnet.solana.com")
+http_client = Client("https://api.mainnet-beta.solana.com")
 
 #字节码转私钥
 from solana.rpc.api import Keypair
@@ -17,31 +17,30 @@ for n in range(1,100):
     # #生成私钥
     keypair = Keypair()
     print(keypair)
+    # # #对账户申请空投【仅仅支持测试网】
+    # req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=int(0.01))
+    # print(req)
     # #转换成公钥
     publickey=keypair.pubkey()
     # print(publickey)
     # #生成json
     # json=keypair.to_json()
     # #生成字节码
-    json=keypair.to_bytes_array()
-    print(json)
+    # json=keypair.to_bytes_array()
+    # print(json)
     # #转回私钥
-    keypair = Keypair.from_bytes(raw_bytes=json)
-    print(keypair)
-    
-    # # #对账户申请空投【仅仅支持测试网】
-    # req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=1)
-    # print(req)
-    # time.sleep(200)
-    # balance=http_client.get_balance(pubkey=keypair.pubkey())#获取账户的sol余额
-    # print(balance)
-    # time.sleep(2)
-    keydf=pd.concat([keydf,pd.DataFrame({"私钥":[str(keypair)],
-                                         "公钥":[str(publickey)],
-                                         "字节码":[json],
-                                        #  "空投结果":[req],
-                                        #  "余额":[balance],
-                                         })])
+    # keypair = Keypair.from_bytes(raw_bytes=json)
+    # print(keypair)
+    # #查看余额
+    balance=http_client.get_balance(pubkey=keypair.pubkey())#获取账户的sol余额
+    print(balance.value,type(balance.value))#int格式
+    if balance.value!=int(0):
+        keydf=pd.concat([keydf,pd.DataFrame({"私钥":[str(keypair)],
+                                            "公钥":[str(publickey)],
+                                            #  "字节码":[json],
+                                            #  "空投结果":[req],
+                                            "余额":[balance.value],
+                                            })])
 # keydf.to_csv("密钥对.csv")
 ##导出密钥对的对应关系
 keydf.to_csv("/home/wth000/gitee/BRC20-ERC20-UI/[SOL]/密钥对.csv")
