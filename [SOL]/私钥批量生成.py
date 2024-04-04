@@ -13,7 +13,7 @@ from solana.rpc.api import Keypair
 import time
 import pandas as pd
 keydf=pd.DataFrame({})
-# for n in range(1,100):
+# for n in range(1,10):
 while True:
     # #生成私钥
     keypair = Keypair()
