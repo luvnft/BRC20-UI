@@ -13,7 +13,8 @@ from solana.rpc.api import Keypair
 import time
 import pandas as pd
 keydf=pd.DataFrame({})
-for n in range(1,100):
+# for n in range(1,100):
+while True:
     # #生成私钥
     keypair = Keypair()
     print(keypair)
@@ -41,6 +42,7 @@ for n in range(1,100):
                                             #  "空投结果":[req],
                                             "余额":[balance.value],
                                             })])
+        break
 # keydf.to_csv("密钥对.csv")
 ##导出密钥对的对应关系
 keydf.to_csv("/home/wth000/gitee/BRC20-ERC20-UI/[SOL]/密钥对.csv")
