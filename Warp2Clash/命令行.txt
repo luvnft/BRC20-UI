@@ -1,3 +1,4 @@
+a0da8fd9725b5de39ae22ed1b905fe0b
 #如果你有WARP账户许可证密钥，但是没有和，可以运行一次以下命令后从中提取记录和的值PrivateKeyPublicKeyWarp2Clash.yamlPrivateKeyPublicKey
 sh W2C_start.sh [WARP账户许可证密钥]
 #如果您有PrivateKey和PublicKey，可按照以下命令执行
@@ -13,5 +14,5 @@ PublicKey = bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
 AllowedIPs = 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1
 Endpoint = 162.159.192.16:2408
 
-
-sh W2C_start.sh 
+#执行生成命令
+sh W2C_start.sh a0da8fd9725b5de39ae22ed1b905fe0b
