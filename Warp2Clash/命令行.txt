@@ -15,4 +15,4 @@ AllowedIPs = 0.0.0.0/1, 128.0.0.0/1, ::/1, 8000::/1
 Endpoint = 162.159.192.16:2408
 
 #执行生成命令
-sh W2C_start.sh a0da8fd9725b5de39ae22ed1b905fe0b
+sh W2C_start.sh r4AWs362-9N571WwZ-OU39LB76
