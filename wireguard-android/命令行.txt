@@ -3,6 +3,8 @@ sudo apt update
 sudo apt install openjdk-17-jdk
 #sudo apt install openjdk-11-jdk
 java -version
+#指定环境变量
+export ANDROID_HOME=/home/wth000/.android
 #下载并编译目标文件
 git clone --recurse-submodules https://git.zx2c4.com/wireguard-android
 cd wireguard-android
