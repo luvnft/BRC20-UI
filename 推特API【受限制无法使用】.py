@@ -1,4 +1,12 @@
 from twython import Twython
+APP_KEY = "7F03ZsSYANd9aRyW5OUhWqZtc"
+APP_SECRET = "tUghd5X3i9AIdZxH7tcZzTw8zXlxKZE4CgimHoY5aKGr6FyJBi"
+twitter = Twython(APP_KEY, APP_SECRET)
+auth = twitter.get_authentication_tokens(callback_url='http://mysite.com/callback')
+print(auth)
+
+
+
 # 替换成你的 Twitter 开发者密钥
 API_KEY = "7F03ZsSYANd9aRyW5OUhWqZtc"
 API_SECRET = "tUghd5X3i9AIdZxH7tcZzTw8zXlxKZE4CgimHoY5aKGr6FyJBi"
