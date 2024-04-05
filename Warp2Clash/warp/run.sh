@@ -13,8 +13,8 @@ endpointyx
 
 python3 WireguardConfig.py
 
-# docker run -it --rm --name my-running-script -v /mnt/sda3/warp:/usr/src/myapp -w /usr/src/myapp python:3 python WireguardConfig.py
+docker run -it --rm --name my-running-script -v /mnt/sda3/warp:/usr/src/myapp -w /usr/src/myapp python:3 python WireguardConfig.py
 
-# cp warp.yaml /etc/openclash/config
+cp warp.yaml /etc/openclash/config
 
-# /etc/init.d/openclash restart 2>/dev/null
+/etc/init.d/openclash restart 2>/dev/null
