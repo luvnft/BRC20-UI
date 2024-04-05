@@ -1,0 +1,8 @@
+#安装JAVA环境
+sudo apt update
+sudo apt install openjdk-11-jdk
+java -version
+#下载并编译目标文件
+git clone --recurse-submodules https://git.zx2c4.com/wireguard-android
+cd wireguard-android
+./gradlew assembleRelease
