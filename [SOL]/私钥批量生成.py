@@ -3,9 +3,9 @@ from solana.rpc.api import Client
 # DevNet: https://api.devnet.solana.com
 # TestNet: https://api.testnet.solana.com
 # MainNet: https://api.mainnet-beta.solana.com
-# http_client = Client("https://api.devnet.solana.com")
+http_client = Client("https://api.devnet.solana.com")
 # http_client = Client("https://api.testnet.solana.com")
-http_client = Client("https://api.mainnet-beta.solana.com")
+# http_client = Client("https://api.mainnet-beta.solana.com")
 
 #字节码转私钥
 from solana.rpc.api import Keypair
@@ -34,7 +34,11 @@ print("种子",seed)
 keypair = Keypair.from_seed(seed)#从种子导回私
 # 生成的助记词登录上去跟一开始的私钥对不上的原因：生成的路径不一样钥【貌似跟初始值对不上了】
 print("私钥",keypair)
-
+#申请空投
+req=http_client.request_airdrop(pubkey=keypair.pubkey(),lamports=int(0.51))
+print(req)
+#【助记词】
+# will rate under ship beach student puzzle tourist game sustain shed discover airport hollow venue until tank inject forum camera sample beach park ostrich
 
 
 # keydf=pd.DataFrame({})

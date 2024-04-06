@@ -47,4 +47,17 @@ cargo build
 cargo install ore-cli
 #输入命令行创建挖矿钱包：
 solana-keygen new --derivation-path m/44'/501'/0'/0' --force
+#助记词will rate under ship beach student puzzle tourist game sustain shed discover airport hollow venue until tank inject forum camera sample beach park ostrich
+#密钥[134,248,66,109,75,132,205,123,135,101,155,16,128,234,204,9,179,18,199,117,250,5,117,150,29,38,44,241,108,48,9,157,152,133,203,106,246,147,182,213,28,105,205,101,22,99,94,176,77,187,86,67,145,190,240,146,213,102,158,151,1,202,99,191]
+#pubkey: BGPJKmdn6t9jHKGoB8FJKWk8aSvtECzD8qhnpgdiGWTY
+#私钥 62JoV6yAfmxJzhgv1s8rWChhKxuZ4vNwckJx7jaosLQBpGTaJBACTeqdYRc9N2663jEtkc46hUXPQjg9AGy892P9
+# DevNet: https://api.devnet.solana.com
+# TestNet: https://api.testnet.solana.com
+# MainNet: https://api.mainnet-beta.solana.com
 
+#开始挖矿输入命令行：【卡在余额不足了】
+ore --rpc https://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json --priority-fee 1 mine --threads 4
+#查询挖矿奖励命令行：
+ore --rpc https://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json rewards
+#提现挖矿奖励命令行：
+ore --rpc https://api.mainnet-beta.solana.com --keypair ~/.config/solana/id.json claim
