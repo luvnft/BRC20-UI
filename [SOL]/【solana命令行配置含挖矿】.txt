@@ -45,5 +45,6 @@ cargo build
 #【ore挖矿教程】
 #安装脚手架
 cargo install ore-cli
-
+#输入命令行创建挖矿钱包：
+solana-keygen new --derivation-path m/44'/501'/0'/0' --force
 
