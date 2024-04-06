@@ -31,9 +31,9 @@ print(mnemonic_phrase)
 #从助记词导出回私钥【从助记词生成种子】
 seed = Mnemonic("english").to_entropy(mnemonic_phrase)
 print("种子",seed)
-keypair = Keypair.from_seed(seed)#从种子导回私钥【貌似跟初始值对不上了】
+keypair = Keypair.from_seed(seed)#从种子导回私
+# 生成的助记词登录上去跟一开始的私钥对不上的原因：生成的路径不一样钥【貌似跟初始值对不上了】
 print("私钥",keypair)
-# 生成的助记词登录上去跟一开始的私钥对不上的原因：生成的路径不一样
 
 
 
