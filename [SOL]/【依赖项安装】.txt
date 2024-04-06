@@ -30,7 +30,20 @@ id:[67,201,54,86,54,242,139,128,197,197,18,8,59,83,72,94,224,238,179,89,26,218,1
 solana airdrop 1
 #转账
 solana transfer --allow-unfunded-recipient CZmVK1DymrSVWHiQCGXx6VG5zgHVrh5J1P514jHKRDxA 0.01
-
-#命令行操作，查看spl-token命令的帮助文档
+#命令行操作，查看spl-token命令的帮助文档【类似于ERC20的操作】
 solana config set --url https://api.devnet.solana.com
+
+
+#创建RUST项目文件
+cargo new --bin helloworld
+#构建文件
+cargo build
+#执行文件
+./target/debug/helloworld abc
+
+
+#【ore挖矿教程】
+#安装脚手架
+cargo install ore-cli
+
 

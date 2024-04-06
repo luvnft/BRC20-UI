@@ -1,8 +1,0 @@
-#创建新文件
-cargo new --bin helloworld
-
-#构建文件
-cargo build
-
-#执行文件
-./target/debug/helloworld abc
